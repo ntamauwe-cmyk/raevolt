@@ -555,16 +555,6 @@ export const providerHealth = defineTable({
 // GitHub integration — org-scoped connection for repository visibility in the
 // developer platform. The PAT is stored only as a SHA-256 hash (see github.ts).
 // ---------------------------------------------------------------------------
-// TEMPORARY staging table for the one-time GitHub publish (see gitSyncTemp.ts).
-// Dropped from use immediately after; harmless if left defined.
-export const gitSyncStage = defineTable({
-  path: v.string(),
-  mode: v.string(),
-  part: v.number(),
-  totalParts: v.number(),
-  b64: v.string(),
-});
-
 export const githubConnections = defineTable({
   orgId: v.id("organizations"),
   /** GitHub user/org the token belongs to (from /user endpoint). */
@@ -619,7 +609,6 @@ const schema = defineSchema(
     disputeEvents,
     providerHealth,
   githubConnections,
-  gitSyncStage,
   },
   {
     schemaValidation: false,
