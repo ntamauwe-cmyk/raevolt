@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatMoney } from "@/lib/money";
+import { RaevoltMark, RAEVOLT_TAGLINE } from "@/components/brand";
 import {
-  Zap,
   ArrowRight,
   ArrowLeftRight,
   Route,
@@ -141,7 +141,7 @@ function HealthProbe() {
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-[#07090f] text-zinc-100 antialiased">
+    <div className="min-h-screen bg-[#080A24] text-zinc-100 antialiased">
       {/* Subtle grid texture */}
       <div
         className="pointer-events-none fixed inset-0 opacity-[0.13]"
@@ -157,11 +157,9 @@ export default function Landing() {
       {/* Nav */}
       <header className="relative z-10 border-b border-white/10">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <a href="/" className="flex items-center gap-2">
-            <span className="flex size-8 items-center justify-center rounded-md bg-gradient-to-br from-indigo-400 to-blue-600 text-white">
-              <Zap className="size-4" />
-            </span>
-            <span className="text-sm font-bold tracking-[0.2em]">RAEVOLT</span>
+          <a href="/" className="flex items-center gap-2" aria-label="RAEVOLT home">
+            <RaevoltMark bare className="size-8" />
+            <span className="text-sm font-bold uppercase tracking-[0.22em]">Raevolt</span>
           </a>
           <nav className="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
             <a href="#platform" className="hover:text-white">Platform</a>
@@ -185,17 +183,19 @@ export default function Landing() {
           <Badge variant="outline" className="border-white/15 bg-white/5 text-zinc-300">
             Payment infrastructure by RAE Technologies
           </Badge>
-          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl">
-            Payment infrastructure that{" "}
-            <span className="bg-gradient-to-r from-indigo-300 via-blue-300 to-cyan-200 bg-clip-text text-transparent">
-              shows its work
-            </span>
+          <h1 className="mx-auto mt-8 text-5xl font-bold uppercase leading-[1.05] tracking-[0.18em] md:text-7xl">
+            Raevolt
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            RAEVOLT routes payments across providers, posts every movement to a
-            double-entry ledger, and streams real-time status — pending,
-            processing, cleared or failed — through webhooks and API queries.
-            Zero opaque holds.
+          <p className="mx-auto mt-4 text-sm font-semibold uppercase tracking-[0.3em] md:text-base">
+            <span className="bg-gradient-to-r from-violet-400 via-violet-300 to-blue-300 bg-clip-text text-transparent">
+              {RAEVOLT_TAGLINE}
+            </span>
+          </p>
+          <p className="mx-auto mt-8 max-w-2xl text-lg text-zinc-400">
+            RAEVOLT provides the infrastructure, APIs, ledger, routing and
+            intelligence required to build and operate modern payment
+            experiences — across providers, currencies and rails. Zero opaque
+            holds.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-200" asChild>
@@ -271,7 +271,7 @@ export default function Landing() {
               >
                 <Card className="h-full border-white/10 bg-white/[0.03] text-zinc-100 backdrop-blur transition-colors hover:border-white/20">
                   <CardContent className="p-6">
-                    <div className="flex size-10 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500/25 to-blue-500/25 text-indigo-300">
+                    <div className="flex size-10 items-center justify-center rounded-lg bg-violet-500/15 text-violet-300">
                       <f.icon className="size-5" />
                     </div>
                     <h3 className="mt-4 font-semibold">{f.title}</h3>
@@ -371,7 +371,7 @@ export default function Landing() {
                 <ul className="mt-4 space-y-2.5">
                   {EVENTS.map((e) => (
                     <li key={e} className="flex items-center gap-2 font-mono text-xs text-zinc-300">
-                      <span className="size-1.5 rounded-full bg-indigo-400" />
+                      <span className="size-1.5 rounded-full bg-violet-400" />
                       {e}
                     </li>
                   ))}
@@ -408,15 +408,15 @@ export default function Landing() {
                 </p>
                 <ul className="mt-4 space-y-3 text-sm text-zinc-300">
                   <li className="flex items-start gap-2">
-                    <ArrowLeftRight className="mt-0.5 size-4 shrink-0 text-indigo-300" />
+                    <ArrowLeftRight className="mt-0.5 size-4 shrink-0 text-violet-300" />
                     Debits equal credits, per currency, always
                   </li>
                   <li className="flex items-start gap-2">
-                    <RouteIcon className="mt-0.5 size-4 shrink-0 text-indigo-300" />
+                    <RouteIcon className="mt-0.5 size-4 shrink-0 text-violet-300" />
                     Providers fail over without merchant code changes
                   </li>
                   <li className="flex items-start gap-2">
-                    <BookLock className="mt-0.5 size-4 shrink-0 text-indigo-300" />
+                    <BookLock className="mt-0.5 size-4 shrink-0 text-violet-300" />
                     Financial history is immutable — corrections are new entries
                   </li>
                 </ul>
@@ -462,9 +462,7 @@ export default function Landing() {
       <footer className="relative z-10 border-t border-white/10 py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-zinc-500 md:flex-row">
           <div className="flex items-center gap-2">
-            <span className="flex size-6 items-center justify-center rounded bg-gradient-to-br from-indigo-400 to-blue-600 text-white">
-              <Zap className="size-3" />
-            </span>
+            <RaevoltMark bare className="size-6" />
             <span>RAEVOLT — payment infrastructure by RAE Technologies Limited</span>
           </div>
           <p className="text-xs">

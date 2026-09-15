@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { StatusPill } from "@/components/raevolt";
 import { formatMoney } from "@/lib/money";
-import { Zap, Loader2, CheckCircle2, CircleAlert, ShieldCheck } from "lucide-react";
+import { Loader2, CheckCircle2, CircleAlert, ShieldCheck } from "lucide-react";
+import { RaevoltMark } from "@/components/brand";
 
 const API_BASE = ((import.meta.env.VITE_CONVEX_URL as string | undefined) ?? "").replace(/\.cloud$/, ".site");
 
@@ -127,13 +128,11 @@ export default function Checkout() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#07090f] px-4 py-10">
+    <div className="flex min-h-screen items-center justify-center bg-[#080A24] px-4 py-10">
       <div className="w-full max-w-md">
-        <div className="mb-6 flex items-center justify-center gap-2 text-zinc-300">
-          <span className="flex size-7 items-center justify-center rounded-md bg-gradient-to-br from-indigo-400 to-blue-600 text-white">
-            <Zap className="size-3.5" />
-          </span>
-          <span className="text-xs font-bold tracking-[0.2em]">RAEVOLT</span>
+        <div className="mb-6 flex items-center justify-center gap-2.5 text-zinc-300">
+          <RaevoltMark bare className="size-7" />
+          <span className="text-xs font-bold uppercase tracking-[0.22em]">Raevolt</span>
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
@@ -244,7 +243,7 @@ export default function Checkout() {
                             onClick={() => setMethod(value)}
                             className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
                               method === value
-                                ? "border-indigo-400/60 bg-indigo-500/15 text-indigo-200"
+                                ? "border-violet-400/60 bg-violet-500/15 text-violet-200"
                                 : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/20"
                             }`}
                           >

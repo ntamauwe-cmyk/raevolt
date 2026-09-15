@@ -24,7 +24,6 @@ import {
   Users,
   ScrollText,
   LogOut,
-  Zap,
   ShieldCheck,
   Loader2,
   Link2,
@@ -32,6 +31,7 @@ import {
   ShieldAlert,
   Contact,
 } from "lucide-react";
+import { RaevoltLogo } from "@/components/brand";
 
 const NAV = [
   { to: "/dashboard", label: "Overview", icon: LayoutDashboard, end: true },
@@ -76,11 +76,8 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r bg-sidebar md:flex">
         <div className="flex h-16 items-center gap-2 border-b px-5">
-          <a href="/" className="flex items-center gap-2">
-            <span className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <Zap className="size-4" />
-            </span>
-            <span className="text-sm font-bold tracking-widest">RAEVOLT</span>
+          <a href="/" className="flex items-center gap-2" aria-label="RAEVOLT home">
+            <RaevoltLogo />
           </a>
         </div>
         <nav className="flex-1 space-y-1 overflow-y-auto p-3">
